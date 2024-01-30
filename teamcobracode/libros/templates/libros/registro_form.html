@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div>
+    <section class="container">
+        <div class="py-5">
+            <h3>Alquiler de libro</h3>
+            <p>* Corrobora los datos de tu alquiler</p>
+                {% if not request.user.is_authenticated %}
+                    <div class="alert alert-danger" role="alert">
+                        Debes registrarte para alquilar un libro.
+                    </div>
+                {% endif %}
+        </div>
+        {% if request.user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <h5>Usuario Alquilando: {{user.username}}</h5>
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-success">Realizar alquiler</button>
+        </form>
+        {% endif %}
+        <br>
+    </section>
+</div>
+
+
+{% endblock %}

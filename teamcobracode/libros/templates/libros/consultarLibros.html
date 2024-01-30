@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/estilosAcercade.css' %}">
+
+<div>
+    <section class="container">
+        <div class="mt-4" style="display: flex; justify-content: space-between;">
+            <div style="margin-left: auto;">
+                <h3 style="text-align: end;">Búsquedas</h3>
+                <a href="{% url 'search' %}" class="btn btn-success me-2">Búsqueda de Libro</a>
+                <a href="{% url 'searchRegistro' %}" class="btn btn-warning">Búsqueda de Préstamos</a>
+            </div>
+        </div>
+        
+        <div class="py-5">
+            <h3>Explora todos nuestros libros</h3>
+            <div class="row" style="background-color: #f9f8f6;">
+                {% for libro in mislibros %}
+                <div class="col-md-3 mb-3 mt-3">
+                    <div class="card text-center">
+                        <img src="{{ libro.imagen.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ libro.titulo }}</h5>
+                            <p class="card-text">
+                                {% if libro.estado %}
+                                Disponible
+                                {% else %}
+                                Reservado
+                                {% endif %}
+                            </p>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{ forloop.counter }}"
+                                style="background-color: #9a8d61; border-color: #9a8d61;">
+                                Ver más detalles ...
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Informacion</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="card-body">
+                                <div class="container">
+                                    <p class="card-text"><strong>Ejemplares disponibles:</strong> {{
+                                        libro.numDeInventario }}</p>
+                                    <p class="card-text"><strong>ISBN:</strong> {{ libro.ISBN }}</p>
+                                    <p class="card-text"><strong>Género:</strong> {{ libro.genero }}</p>
+                                    <p class="card-text"><strong>Descripción:</strong>
+                                        {{ libro.descripcion }}</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar
+                                </button>
+                                {% if libro.estado %}
+                                <a href="{% url 'createRegistro' libro.id %}" class="btn btn-primary"
+                                    style="background-color: #9a8d61; border-color: #9a8d61;">Alquilar</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

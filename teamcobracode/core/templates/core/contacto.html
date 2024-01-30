@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block title%} contacto {% endblock%}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static './css/estilosContacto.css' %}">
+
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/6552388f958be55aeaaf2f16/1hf4ipssp';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+
+<div class="container py-5">
+    <div class="row d-flex align-items-center">
+        <div class="col-md-12 col-lg-4 mb-3">
+            <div class="equipo">
+                <img class="img-logo" src="../../static/src/logoCC.png" class="d-inline-block align-top" alt="Tu Logo">
+                <h2 class="titulo">COBRACODE</h2>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+            <div class="formulario">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Ingrese su nombre completo...">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Ingrese su direccion de correo...">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Ingrese su numero de telefono...">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">¿Quieres dejarnos un mensaje?</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                </div>
+                <button type="button" class="btn btn-success">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

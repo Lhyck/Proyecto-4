@@ -17,4 +17,4 @@ pylint-celery = "*"
 python_version = "3.10"
 
 [scripts]
-teamcobracode = "python teamcobracode/manage.py runserver"
+teamcobracode = "python Proyecto-4/teamcobracode/manage.py runserver"

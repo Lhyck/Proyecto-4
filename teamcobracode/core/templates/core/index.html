@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %} index {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center align-items-center" style="height: 77vh;">
+        <div class="col-md-6 text-center">
+            <h1>LA MAGIA DEL SABER</h1>
+            <p>Nuestra biblioteca tiene como propósito fundamental que jóvenes y adultos se reencuentren
+                con la magia y el encanto de los libros.</p>
+            <div class="d-flex justify-content-center"> 
+                <a href="{% url 'alquilerLibros' %}" class="btn btn-success me-2">Alquilar un Libro</a>
+                <a href="{% url 'consultarLibros' %}" class="btn btn-warning">Consultar un Libro</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img class="imagen img-fluid"
+                src="https://png.pngtree.com/png-clipart/20210912/original/pngtree-books-and-books-png-image_6715329.jpg"
+                alt="Imagen">
+        </div>
+    </div>
+</div>
+{% endblock %}

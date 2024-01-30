@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div>
+    <section class="container">
+        <div class="py-5">
+            <h4> Búsqueda de prestamos</h4>
+
+            <form class="d-flex" role="search" method="get">
+                <input name="search" class="form-control m-2" type="search" placeholder="Buscar ..."
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="row">
+            <h5 style="text-align: center;">Listado de préstamos</h5>
+
+            <table class="table table-success table-striped table-hover">
+                <tr>
+                    <th>Usuario</th>
+                    <th>Libro</th>
+                    <th>Imagen </th>
+                </tr>
+                {% for item in registro_list %}
+                <tr>
+                    <th>
+                        <p>{{item.usuario.username}}</p>
+                    </th>
+                    <th>
+                        <p>{{item.libroAlquilado.titulo}}</p>
+                    </th>
+                    <th><img class="img-fluid" src="{{ item.libroAlquilado.imagen.url }}" style="height: 300px; "></th>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </section>
+
+</div> 
+
+{% endblock %}

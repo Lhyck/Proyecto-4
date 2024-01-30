@@ -1,0 +1,34 @@
+.titulo {
+    margin-right: 10px;
+    color: #648a64;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.img-equipo {
+    width: 70px;
+    height: 70px;
+}
+
+.equipo {
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.carrucel-container {
+    max-width: 60%; /* Cambia el valor según sea necesario */
+    margin: 0 auto; /* Esto centrará el carrusel */
+}
+
+/* Estilo adicional si deseas reducir la altura del carrusel */
+.carousel {
+    max-height: 500px; /* Cambia el valor según sea necesario */
+}
+
+.carousel-images{
+    height: 500px;
+}
